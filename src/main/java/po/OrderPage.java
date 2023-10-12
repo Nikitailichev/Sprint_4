@@ -36,6 +36,11 @@ public class OrderPage {
         new WebDriverWait(driver, Duration.ofSeconds(3)).until(ExpectedConditions.visibilityOfElementLocated(getTitleOrder()));
     }
 
+    public boolean waitForOrderPage() {
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOfElementLocated(orderHeader));
+        return true;
+    }
+
     public void setDataFieldsAndClickNext(String valueName, String valueSurname, String valueAddress,
                                           String valueMetro, String valuePhone) {
         getName().sendKeys(valueName);

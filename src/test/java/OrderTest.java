@@ -76,8 +76,8 @@ public class OrderTest {
 
     @Test
     public void testOrder() {
-
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+        MainPage mainPage = new MainPage(driver);
+        driver.get(mainPage.MAIN_PAGE);
         objMainPage = new MainPage(driver);
         objMainPage.waitForLoadPage();
         objMainPage.clickGetCookie();

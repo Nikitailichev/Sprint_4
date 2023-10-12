@@ -16,6 +16,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 
 import org.openqa.selenium.firefox.FirefoxDriver;
 import po.MainPage;
+import po.OrderPage;
 
 @RunWith(Parameterized.class)
 public class FaqTest {
@@ -75,7 +76,8 @@ public class FaqTest {
 //      driver = new Augmenter().augment(driver);
         WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+        MainPage mainPage = new MainPage(driver);
+        driver.get(mainPage.MAIN_PAGE);
         objMainPage = new MainPage(driver);
         objMainPage.clickGetCookie();
         objMainPage.waitForLoadFaq();
@@ -88,21 +90,14 @@ public class FaqTest {
     }
 
     @Test
-    public void myFaqTest() {
+    public void FaqTest() {
 
         WebElement faqElement = faqElements.get(index);
 
-        boolean buttonClickable = objMainPage.isButtonClickable(faqElement);
-        assertTrue("Элемент "+index+" не кликабелен", buttonClickable);
-
-        if (!buttonClickable) return;
-
         faqElement.click();
 
-        String faqQuestion;
-        faqQuestion = objMainPage.getQuestion(faqElement);
-        String faqAnswer;
-        faqAnswer = objMainPage.getAnswer(faqElement);
+        String faqQuestion = objMainPage.getQuestion(faqElement);
+        String faqAnswer = objMainPage.getAnswer(faqElement);
 
         if (isDebugging) {
             System.out.println(faqQuestion);

@@ -12,6 +12,7 @@ import java.util.List;
 public class MainPage {
 
     private final WebDriver driver;
+    public final String MAIN_PAGE = "https://qa-scooter.praktikum-services.ru/";
     private final By buttonOrderTop = By.xpath(".//div[starts-with(@class,'Header_Nav')]//button[text()='Заказать']"); // локатор кнопки заказа верхней
     private final By buttonOrderBottom = By.xpath(".//div[contains(@class,'FinishButton')]//button[text()='Заказать']"); // локатор кнопки заказа нижней
     private final By sectionFaq = By.xpath(".//div[starts-with(@class,'Home_FAQ')]"); // секция Вопросы о важном
