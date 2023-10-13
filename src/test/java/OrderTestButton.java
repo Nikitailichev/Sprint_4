@@ -41,7 +41,7 @@ public class OrderTestButton {
         mainPage.clickGetCookie();
         mainPage.clickOrder(1);
 
-        assertTrue("страница заказа загрузилась после нажатия на нижнюю кнопку 'Заказать'", orderPage.waitForOrderPage());
+        assertTrue("страница заказа не загрузилась после нажатия на нижнюю кнопку 'Заказать'", orderPage.waitForOrderPage());
     }
 
     @AfterClass
